@@ -1,6 +1,8 @@
+__precompile__(true)
 module ICCommon
 
 export PlotSetup, PlotPoint
+export NewJobRequest, UpdateJobRequest
 
 type PlotSetup
     arrtype::DataType
@@ -18,4 +20,15 @@ type PlotPoint
     v
 end
 
+type NewJobRequest
+    args::Dict
 end
+NewJobRequest(;kwargs...) = NewJobRequest(Dict(kwargs))
+
+type UpdateJobRequest
+    job_id::Int
+    args::Dict
+end
+UpdateJobRequest(job_id; kwargs...) = UpdateJobRequest(job_id, Dict(kwargs))
+
+end # module

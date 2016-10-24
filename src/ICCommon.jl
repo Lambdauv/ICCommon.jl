@@ -2,6 +2,7 @@ __precompile__(true)
 module ICCommon
 
 export NewJobRequest, UpdateJobRequest
+export ListUsersRequest
 
 export PlotSetup, PlotPoint
 
@@ -15,6 +16,8 @@ type UpdateJobRequest
     args::Dict
 end
 UpdateJobRequest(job_id; kwargs...) = UpdateJobRequest(job_id, Dict(kwargs))
+
+type ListUsersRequest end
 
 type ArchiveRequest
     data::Dict

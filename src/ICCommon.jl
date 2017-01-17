@@ -1,42 +1,29 @@
 __precompile__(true)
 module ICCommon
 
-export NewJobRequest, UpdateJobRequest
-export ListUsersRequest
-
-export PlotSetup, PlotPoint
-
-type NewJobRequest
-    args::Dict
-end
-NewJobRequest(;kwargs...) = NewJobRequest(Dict(kwargs))
-
-type UpdateJobRequest
-    job_id::Int
-    args::Dict
-end
-UpdateJobRequest(job_id; kwargs...) = UpdateJobRequest(job_id, Dict(kwargs))
-
-type ListUsersRequest end
-
-type ArchiveRequest
-    data::Dict
-end
-
-type PlotSetup
-    arrtype::DataType
-    size::Tuple
-    kwargs::Dict
-end
-
-function PlotSetup(a,b; kwargs...)
-    argdict = Dict(k=>v for (k,v) in kwargs)
-    PlotSetup(a,b,argdict)
-end
-
-type PlotPoint
-    inds
-    v
-end
+import ZMQ
+include("instrument.jl")
+include("sweep/sweep.jl")
+include("interface.jl")
+#
+# @enum SweepStatus Waiting Running Aborted Done
+#
+# """
+# ```
+# @enum SweepStatus Waiting Running Aborted Done
+# ```
+#
+# Sweep statuses are represented with an enum.
+#
+# ```jldoctest
+# julia> InstrumentControl.SweepStatus
+# Enum InstrumentControl.SweepStatus:
+# Waiting = 0
+# Running = 1
+# Aborted = 2
+# Done = 3
+# ```
+# """
+# SweepStatus
 
 end # module

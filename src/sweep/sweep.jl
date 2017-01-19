@@ -1,16 +1,17 @@
-export Stimulus, Response
-export source, measure
-
-export scaling
-
-export axisname, axislabel
-export axisscales, axisnames
+export Stimulus,
+    Response,
+    source,
+    measure,
+    axisname,
+    axislabel,
+    axisscales,
+    axisnames,
+    scaling
 
 abstract Stimulus
 abstract Response
 
 function source end
-
 function measure end
 
 global scaling

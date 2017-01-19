@@ -1,38 +1,8 @@
 # Job requests
 
-type WithJobRequest
-    fn::Symbol
-    job_id::Int
-end
-
-type AbortJobRequest
-    job_id::Int
-end
-
-type NewJobRequest
-    args::Dict
-end
-NewJobRequest(;kwargs...) = NewJobRequest(Dict(kwargs))
-
-type UpdateJobRequest
-    job_id::Int
-    args::Dict
-end
-UpdateJobRequest(job_id; kwargs...) = UpdateJobRequest(job_id, Dict(kwargs))
-
-type ListJobsRequest end
-
-# User requests
-
-type ListUsersRequest end
-
 type ArchiveRequest
     data::Dict
 end
-
-# Instrument requests
-
-type ListInstrumentsRequest end
 
 # Plotting requests
 

@@ -2,6 +2,7 @@ __precompile__(true)
 module ICCommon
 
 import ZMQ
+import AxisArrays: AxisArray, Axis
 include("instrument.jl")
 include("sweep/sweep.jl")
 include("interface.jl")

@@ -1,5 +1,6 @@
-# Job requests
+export reconstruct
 
+# Job requests
 type ArchiveRequest
     data::Dict
 end
@@ -42,3 +43,19 @@ end
 
 stdout() = Base.STDOUT
 write_stdout(x) = write(stdout(), x)
+
+# Reconstruct AxisArray from an archived dictionary.
+function reconstruct(d::Dict{String,Any})
+    haskey(d, "data") || error("no `data` key.")
+
+    r = r"^axis([0-9]+)_([\s\S]+)"
+    keyz = collect(keys(d))
+    where = [ismatch(r, str) for str in keyz]
+    matches = keyz[where]
+    a = map(str->begin m = match(r,str); parse(m[1]),m[2] end, matches)
+    a2 = Vector{Tuple{Symbol, Any}}(length(a))
+    for (f,g) in a
+        a2[f] = (Symbol(g), d["axis$(f)_$(g)"])
+    end
+    AxisArray(d["data"], (Axis{name}(v) for (name,v) in a2)...)
+end

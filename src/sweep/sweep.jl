@@ -8,8 +8,8 @@ export Stimulus,
     axisnames,
     scaling
 
-abstract Stimulus
-abstract Response
+@compat abstract type Stimulus end
+@compat abstract type Response end
 
 function source end
 function measure end

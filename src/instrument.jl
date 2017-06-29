@@ -1,8 +1,8 @@
 export Instrument, InstrumentProperty
 export RemoteInstrument
 
-abstract Instrument
-abstract InstrumentProperty
+@compat abstract type Instrument end
+@compat abstract type InstrumentProperty end
 
 immutable RemoteInstrument
     alias::String

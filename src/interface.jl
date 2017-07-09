@@ -37,7 +37,7 @@ type ListInstrumentsRequest end
 # Plotting requests
 
 type PlotSetup
-    arrtype::DataType
+    arrtype
     size::Tuple
     kwargs::Dict
 end

@@ -1,8 +1,6 @@
 __precompile__(true)
 module ICCommon
-
 import ZMQ
-using Compat
 
 include("instrument.jl")
 include("sweep/sweep.jl")

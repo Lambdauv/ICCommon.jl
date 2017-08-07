@@ -2,13 +2,13 @@ export RandomResponse
 
 """
 ```
-immutable RandomResponse <: Response end
+struct RandomResponse <: Response end
 ```
 
 Random number response suitable for testing the measurement code without having
 a physical instrument.
 """
-immutable RandomResponse <: Response end
+struct RandomResponse <: Response end
 
 """
 ```

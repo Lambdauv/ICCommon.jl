@@ -2,7 +2,7 @@ export AveragingResponse
 
 """
 ```
-type AveragingResponse <: Response
+mutable struct AveragingResponse <: Response
     r::Response
     n_avg::Int
 end
@@ -10,7 +10,7 @@ end
 
 Response that averages other responses.
 """
-type AveragingResponse <: Response
+mutable struct AveragingResponse <: Response
     r::Response
     n_avg::Int
 end

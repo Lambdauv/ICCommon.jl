@@ -2,7 +2,7 @@ export DummyStimulus, DummyResponse
 
 """
 ```
-type DummyStimulus <: Stimulus
+mutable struct DummyStimulus <: Stimulus
     io::IO
     axisname::Symbol
     axislabel::String
@@ -13,7 +13,7 @@ Stimulus for debugging. When sourced, it will `println` the value that was
 sourced to `io`, which defaults to `STDOUT` if no argument is provided to the
 constructor.
 """
-type DummyStimulus <: Stimulus
+mutable struct DummyStimulus <: Stimulus
     io::IO
     axisname::Symbol
     axislabel::String
@@ -33,7 +33,7 @@ source(ch::DummyStimulus, x...) = println(ch.io, x...)
 
 """
 ```
-type DummyResponse <: Response
+mutable struct DummyResponse <: Response
     io::IO
     i::UInt64
     DummyResponse(io) = new(io,0)
@@ -43,7 +43,7 @@ end
 Response for debugging. When measured, it will `println` the value `i` to `io`,
 and then increment `i`. `io` defaults to `STDOUT` if no argument is provided.
 """
-type DummyResponse <: Response
+mutable struct DummyResponse <: Response
     io::IO
     i::UInt64
     DummyResponse(io) = new(io,1)

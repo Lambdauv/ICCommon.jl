@@ -2,7 +2,7 @@ export PropertyStimulus
 
 """
 ```
-type PropertyStimulus{T<:InstrumentProperty} <: Stimulus
+mutable struct PropertyStimulus{T<:InstrumentProperty} <: Stimulus
     ins::Instrument
     typ::Type{T}
     tuple::Tuple
@@ -16,7 +16,7 @@ sourcing a PropertyStimulus does nothing more than calling `setindex!` with
 the associated property and value. Additional parameters to be passed to
 `setindex!` may be specified at the time the `PropertyStimulus` is constructed.
 """
-type PropertyStimulus{T<:InstrumentProperty} <: Stimulus
+mutable struct PropertyStimulus{T<:InstrumentProperty} <: Stimulus
     ins::Instrument
     typ::Type{T}
     tuple::Tuple

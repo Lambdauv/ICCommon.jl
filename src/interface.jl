@@ -1,42 +1,42 @@
 # Job requests
 
-type WithJobRequest
+mutable struct WithJobRequest
     fn::Symbol
     job_id::Int
 end
 
-type AbortJobRequest
+mutable struct AbortJobRequest
     job_id::Int
 end
 
-type NewJobRequest
+mutable struct NewJobRequest
     args::Dict
 end
 NewJobRequest(;kwargs...) = NewJobRequest(Dict(kwargs))
 
-type UpdateJobRequest
+mutable struct UpdateJobRequest
     job_id::Int
     args::Dict
 end
 UpdateJobRequest(job_id; kwargs...) = UpdateJobRequest(job_id, Dict(kwargs))
 
-type ListJobsRequest end
+struct ListJobsRequest end
 
 # User requests
 
-type ListUsersRequest end
+struct ListUsersRequest end
 
-type ArchiveRequest
+mutable struct ArchiveRequest
     data::Dict
 end
 
 # Instrument requests
 
-type ListInstrumentsRequest end
+struct ListInstrumentsRequest end
 
 # Plotting requests
 
-type PlotSetup
+mutable struct PlotSetup
     arrtype
     size::Tuple
     kwargs::Dict
@@ -47,7 +47,7 @@ function PlotSetup(a,b; kwargs...)
     PlotSetup(a,b,argdict)
 end
 
-type PlotPoint
+mutable struct PlotPoint
     inds
     v
 end

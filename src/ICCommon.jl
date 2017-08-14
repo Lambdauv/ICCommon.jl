@@ -3,6 +3,7 @@ module ICCommon
 
 import ZMQ
 using Compat
+using AxisArrays
 
 include("instrument.jl")
 include("sweep/sweep.jl")

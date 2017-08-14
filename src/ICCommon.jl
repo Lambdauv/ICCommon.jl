@@ -1,8 +1,6 @@
 __precompile__(true)
 module ICCommon
-
 import ZMQ
-using Compat
 using AxisArrays
 
 include("instrument.jl")

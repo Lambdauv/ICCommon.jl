@@ -2,7 +2,7 @@ export WorkerStimulus
 
 """
 ```
-type WorkerStimulus <: Stimulus
+mutable struct WorkerStimulus <: Stimulus
     nworkers::Int
     initialization::Expr
 
@@ -29,7 +29,7 @@ end
 Changes the number of Julia worker processes. An Expr object is used to
 initialize new workers.
 """
-type WorkerStimulus <: Stimulus
+mutable struct WorkerStimulus <: Stimulus
     nworkers::Int
     initialization::Expr
 

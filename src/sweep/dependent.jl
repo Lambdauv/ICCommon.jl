@@ -2,7 +2,7 @@ export DependentStimulus
 
 """
 ```
-type DependentStimulus <: Stimulus
+mutable struct DependentStimulus <: Stimulus
     indep::Stimulus
     dep::Tuple{Vararg{Tuple{Stimulus, Function}}}
     axisname::Symbol
@@ -12,7 +12,7 @@ end
 
 Permits multiple stimuli to be sourced along a given axis on a sweep.
 """
-type DependentStimulus <: Stimulus
+mutable struct DependentStimulus <: Stimulus
     indep::Stimulus
     dep::Tuple{Vararg{Tuple{Stimulus, Function}}}
     axisname::Symbol

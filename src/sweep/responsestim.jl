@@ -2,7 +2,7 @@ export ResponseStimulus
 
 """
 ```
-type ResponseStimulus{T} <: Stimulus
+mutable struct ResponseStimulus{T} <: Stimulus
     res::Response
     name::Symbol
     val::T
@@ -15,7 +15,7 @@ how that `Response` is measured. For instance, this may be useful to change
 `n_avg` in the `AveragingResponse` to see the effect of averaging. Some care is
 required to determine that the result type or shape of `res` is not modified.
 """
-type ResponseStimulus{T} <: Stimulus
+mutable struct ResponseStimulus{T} <: Stimulus
     res::Response
     name::Symbol
     val::T
